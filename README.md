@@ -12,13 +12,14 @@ Une application frontend construite avec **Vue.js 3** et **Vite**, affichant dyn
 2. **Installer les dépendances**
     ```bash
     npm install
+    npm install -D sass
 3. **Démarrer le serveur de développement**
     ```bash
     npm run dev
 4. **Ouvrir dans le navigateur**
     ```bash
     http://localhost:5173
-## 💡 Roadmap / À venir
+## 💡 À venir
 * Frontend entier
 * 🔌 Connexion à un backend
 

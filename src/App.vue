@@ -1,6 +1,5 @@
 <template>
   <Header />
-  hello
 </template>
 
 <script setup>
