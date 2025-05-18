@@ -1,9 +1,16 @@
+@import url('../public/font/Roboto/Roboto.scss');
+
 $black: #121212;
 $white: #e7e7e7;
+
+
+
 * {
+    transition: all .3s ease-in-out;
     margin: 0;
     padding: 0;
     color: $black;
+    font-family: 'Roboto';
 }
 
 body.light {
