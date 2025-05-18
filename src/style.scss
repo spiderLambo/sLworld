@@ -6,6 +6,16 @@ $white: #e7e7e7;
     color: $black;
 }
 
-body {
+body.light {
     background-color: $white;
+}
+.light * {
+    color: $black;
+}
+
+body.dark {
+    background-color: $black;
+}
+.dark * {
+    color: $white;
 }

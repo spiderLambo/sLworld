@@ -7,11 +7,39 @@
             </ul>
             <ul>
                 <li>Ajouter</li>
-                <li><img src="../assets/moon-line.svg" alt="Mode nuit"></li>
+                <li>
+                    <img :src="isDark ? sun : moon"
+                        :alt="isDark ? 'Passer au mode jour' : 'Passer au mode nuit'"
+                        @click="toggleImage">
+                </li>
             </ul>
         </nav>
     </header>
 </template>
+
+<script setup>
+import { ref, onMounted, watch } from 'vue'
+import moon from '../assets/moon-line.svg'
+import sun from '../assets/sun-line.svg'
+
+const isDark = ref(true)
+
+function toggleImage() {
+  isDark.value = !isDark.value
+}
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme')
+  isDark.value = savedTheme === 'dark'
+  document.body.classList.add(isDark.value ? 'dark' : 'light')
+})
+
+watch(isDark, (newVal) => {
+  localStorage.setItem('theme', newVal ? 'dark' : 'light')
+  document.body.classList.toggle('dark', newVal)
+  document.body.classList.toggle('light', !newVal)
+})
+</script>
 
 <style lang="scss" scoped>
 nav {
@@ -41,5 +69,3 @@ nav {
     border-radius: 50%;
 }
 </style>
-
-<script setup></script>
