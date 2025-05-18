@@ -6,7 +6,13 @@
                 <li><img src="../../public/sLmusic-big.svg" alt="🎵 sLmusic"></li>
             </ul>
             <ul>
-                <li>Ajouter</li>
+                <li class="add">
+                  <h1>Ajouter</h1>
+                  <ul>
+                    <li>Ajouter un artiste</li>
+                    <li>Ajouter un projet</li>
+                  </ul>
+                </li>
                 <li>
                     <img :src="isDark ? sun : moon"
                         :alt="isDark ? 'Passer au mode jour' : 'Passer au mode nuit'"
@@ -57,15 +63,35 @@ nav {
 
   li {
       list-style-type: none;
-      
+
+      &:hover {
+        cursor: pointer;
+      }
+
       img {
           height: 24px;
       }
   }
 }
 
-.pp{
+.pp {
     height: 40px;
     border-radius: 50%;
+}
+.add {
+  // h1 {
+    // &:hover + ul {
+      // }
+      // }
+  ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 1px 1px #000,
+    -1px 1px 1px #000;
+    // display: none;
+  }
 }
 </style>
