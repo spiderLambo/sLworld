@@ -5,9 +5,9 @@
             <h6>PLK</h6>
             <div class="menu">
                 <img :src="isDark ? listDark : listLight"
-                    alt="Passer en mode liste" @click="toggleTheme">
+                    alt="Passer en mode liste">
                 <img :src="isDark ? gridDark : gridLight"
-                alt="Passer en mode liste" @click="toggleTheme">
+                alt="Passer en mode liste">
             </div>
         </header>
     </section>
@@ -29,7 +29,7 @@ $size: 25px;
 $diference: 5px;
 
 section {
-    border: 3px solid #ccc;
+    border: 3px solid;
     border-radius: 10px;
     padding: 1rem;
     width: 95vw;
