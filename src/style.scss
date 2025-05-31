@@ -18,6 +18,7 @@ body.light {
 }
 .light * {
     color: $black;
+    background-color: $white;
 }
 
 body.dark {
@@ -25,4 +26,5 @@ body.dark {
 }
 .dark * {
     color: $white;
+    background-color: $black;
 }

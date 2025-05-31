@@ -6,12 +6,8 @@
                 <li><img src="../../public/sLmusic-big.svg" alt="🎵 sLmusic"></li>
             </ul>
             <ul>
-                <li class="add">
+                <li>
                   <h1>Ajouter</h1>
-                  <ul>
-                    <li>Ajouter un artiste</li>
-                    <li>Ajouter un projet</li>
-                  </ul>
                 </li>
                 <li>
                     <img :src="isDark ? sun : moon"
@@ -29,6 +25,7 @@ import moon from '../assets/moon-line.svg'
 import sun from '../assets/sun-line.svg'
 
 const isDark = ref(true)
+const Ajouter = document.querySelector(".add")
 
 function toggleImage() {
   isDark.value = !isDark.value
@@ -45,6 +42,8 @@ watch(isDark, (newVal) => {
   document.body.classList.toggle('dark', newVal)
   document.body.classList.toggle('light', !newVal)
 })
+
+// Ajouter.addEventListener('onclick', () => {})
 </script>
 
 <style lang="scss" scoped>
@@ -78,20 +77,5 @@ nav {
     height: 40px;
     border-radius: 50%;
 }
-.add {
-  // h1 {
-    // &:hover + ul {
-      // }
-      // }
-  ul {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: 1px 1px 1px #000,
-    -1px 1px 1px #000;
-    // display: none;
-  }
-}
+
 </style>
