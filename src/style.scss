@@ -19,6 +19,7 @@ body.light {
 .light * {
     color: $black;
     background-color: $white;
+    border-color: $black;
 }
 
 body.dark {
@@ -27,4 +28,5 @@ body.dark {
 .dark * {
     color: $white;
     background-color: $black;
+    border-color: $white;
 }
