@@ -54,9 +54,12 @@ header {
 
     .menu {
         margin-left: auto;
-        background: red;
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        border-radius: 5px;
+        border: 1px solid ;
+        gap: $diference;
         padding: calc($diference/2);
 
         img {
