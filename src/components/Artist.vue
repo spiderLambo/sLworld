@@ -15,6 +15,8 @@
                 </label>
             </div>
         </header>
+
+        <Project />
     </section>
 </template>
 
@@ -27,10 +29,10 @@ import listDark from '../assets/list-dark.svg'
 import gridLight from '../assets/grid-light.svg'
 import gridDark from '../assets/grid-dark.svg'
 
+import Project from './Project.vue'
 
-const { isDark, toggleTheme } = useTheme()
+const { isDark } = useTheme()
 </script>
-
 
 
 <style scoped lang="scss">
@@ -40,16 +42,19 @@ $diference: 5px;
 section {
   border: 3px solid;
   border-radius: 10px;
-  padding: 1rem;
-  width: 95vw;
+  width: 100%;
+  max-width: 95vw;
+  overflow: hidden;
 }
 
 header {
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 1rem;
   gap: 1vw;
-  height: calc($size + 2 * $diference);
+  height: auto;
   width: 100%;
 
   > img {
