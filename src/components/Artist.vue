@@ -3,11 +3,14 @@
         <header>
             <img src="../assets/test/artist.jpeg" alt="PLK">
             <h6>PLK</h6>
+            
             <div class="menu">
+                <input type="checkbox" id="switch" />
                 <img :src="isDark ? listDark : listLight"
-                    alt="Passer en mode liste">
+                alt="Passer en mode liste">
                 <img :src="isDark ? gridDark : gridLight"
                 alt="Passer en mode liste">
+                <label for="switch"></label>
             </div>
         </header>
     </section>
@@ -53,6 +56,7 @@ header {
     }
 
     .menu {
+        position: relative;
         margin-left: auto;
         display: flex;
         justify-content: space-between;
@@ -61,10 +65,30 @@ header {
         border: 1px solid ;
         gap: $diference;
         padding: calc($diference/2);
+        overflow: hidden;
+
+        input[type=checkbox] {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
 
         img {
-            height: calc($size - $diference);
+            z-index: 2;
+            background: none;
+            height: $size - $diference;
         }
+
+        label {
+            position: absolute;
+            z-index: 0;
+            height: 100%; width: 100%;
+            background: red;
+            left: 0;
+        }
+
     }
+
+    
 }
 </style>
