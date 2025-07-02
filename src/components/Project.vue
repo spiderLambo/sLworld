@@ -6,9 +6,9 @@
             <h3>28 Août, 2020</h3>
         </div>
         <div class="compteur">
-            <button>+</button>
+            <button><span>+</span></button>
             <span>2</span>
-            <button>-</button>
+            <button><span>-</span></button>
         </div>
     </section>
 </template>
@@ -48,6 +48,43 @@ $height: 15vw;
 
   .compteur {
     margin-left: auto;
+    font-size: calc($height / 3);
+    display: flex;
+    align-items: center;
+    gap: #{$g}px;
+
+    > button {
+      background: none;
+      border-radius: 50%;
+      border: 5px solid;
+      height: calc($height / 4);
+      width: calc($height / 4);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: calc($height / 4);
+      // line-height: calc($height / 4);
+      // line-height: 1;
+      // font-family: monospace;
+
+      span {
+        display: inline-block;
+        width: auto;
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+        background: none;
+      }
+
+      &:first-child span {
+        transform: translateY(-1px);
+      }
+
+      &:last-child span {
+        transform: translateY(-3px);
+      }
+    }
   }
 }
 </style>
