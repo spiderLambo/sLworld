@@ -16,8 +16,8 @@
             </div>
         </header>
 
-        <Project />
-        <Project />
+        <ProjectList />
+        <ProjectList />
     </section>
 </template>
 
@@ -30,7 +30,7 @@ import listDark from '../assets/list-dark.svg'
 import gridLight from '../assets/grid-light.svg'
 import gridDark from '../assets/grid-dark.svg'
 
-import Project from './Project.vue'
+import ProjectList from './ProjectList.vue'
 
 const { isDark } = useTheme()
 </script>
