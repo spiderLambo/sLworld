@@ -42,7 +42,7 @@ $diference: 5px;
 section {
   border: 3px solid;
   border-radius: 10px;
-  width: 100%;
+  width: 95vw;
   max-width: 95vw;
   overflow: hidden;
 }
@@ -53,6 +53,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
+  border-radius: 10px;
   gap: 1vw;
   height: auto;
   width: 100%;

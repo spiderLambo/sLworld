@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="project">
         <img src="../assets/test/cover.jpeg" alt="cover">
         <div class="info">
             <h1>Enna</h1>
@@ -16,19 +16,19 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-$g: 10px;
-$gap: $g * ($g / 2px);
+$g: 10;
+$gap: $g * $g * 0.5;
 $height: 15vw;
 
-section {
-  border:none;
+.project {
+  border: none;
   border-radius: 0;
   border-top: 3px solid;
-  width: auto;
-  padding: $g;
+  padding: #{$g}px;
   display: flex;
   align-items: center;
-  gap: $gap;
+  gap: #{$gap}px;
+  width: auto;
 
   > img {
     border-radius: 10px;
@@ -39,10 +39,10 @@ section {
 
   .info {
     h1 {
-        font-size: $height / 2.5;
+        font-size: calc($height / 2.5);
     }
     h3 {
-        font-size: $height / 9;
+        font-size: calc($height / 9);
     }
   }
 
