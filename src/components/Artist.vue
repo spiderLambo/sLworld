@@ -4,7 +4,7 @@
             <img src="../assets/test/artist.jpeg" alt="PLK">
             <h6>PLK</h6>
 
-            <input type="range" min="10" v-model="gridHeight" max="20" v-if="isGrid">
+            <input type="range" min="10" v-model="gridEltHeight" max="20" v-if="isGrid">
             
             <div class="menu">
                 <input type="checkbox" :id="uniqueId" v-model="isGrid"/>
@@ -23,9 +23,9 @@
             <ProjectList />
             <ProjectList />
           </div>
-          <div v-else class="projects-grid" key="grid">
-            <ProjectGrid :height="gridHeight" />
-            <ProjectGrid :height="gridHeight"/>
+          <div v-else class="projects-grid" ref="gridWidth" :style="{ '--grid-cols': gridCols }" key="grid">
+            <ProjectGrid :height="gridEltHeight" />
+            <ProjectGrid :height="gridEltHeight"/>
           </div>
         </transition>
     </section>
@@ -34,7 +34,7 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, onMounted, watch, nextTick, onBeforeUnmount } from 'vue'
 import { useTheme } from '../composables/useTheme'
 import listLight from '../assets/list-light.svg'
 import listDark from '../assets/list-dark.svg'
@@ -47,8 +47,42 @@ import ProjectGrid from './ProjectGrid.vue'
 const { isDark } = useTheme()
 
 const isGrid = ref(false)
-const gridHeight = ref(15)
+const gridEltHeight = ref(15)
 const uniqueId = `switch-${Math.random().toString(36).substr(2, 9)}`
+const gridWidth = ref<HTMLElement | null>(null)
+const gridWidthPx = ref(0)
+
+function vwToPx(vw: number) {
+  return window.innerWidth * (vw / 100)
+}
+
+const gridCols = computed(() => {
+  if (!gridEltHeight.value) return 1
+  const eltPx = vwToPx(gridEltHeight.value)
+  return Math.max(1, Math.floor(gridWidthPx.value / eltPx))
+})
+
+function updateGridWidth() {
+  if (gridWidth.value) {
+    gridWidthPx.value = gridWidth.value.offsetWidth
+  }
+}
+
+
+onMounted(() => {
+  updateGridWidth()
+  window.addEventListener('resize', updateGridWidth)
+})
+
+
+watch([isGrid, gridEltHeight], async () => {
+  await nextTick()
+  updateGridWidth()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateGridWidth)
+})
 </script>
 
 
@@ -148,8 +182,9 @@ header {
 .projects-grid {
   border-top: 3px solid;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
   gap: 2vw;
+  padding: 1vw;
   width: 100%;
 }
 
