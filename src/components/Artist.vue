@@ -16,12 +16,14 @@
             </div>
         </header>
 
-        <!-- <ProjectList />
-        <ProjectList /> -->
-        <div class="projects-grid">
-          <ProjectGrid />
-          <ProjectGrid />
+        <div class="project-list">
+          <ProjectList />
+          <ProjectList />
         </div>
+        <!-- <div class="projects-grid">
+          <ProjectGrid />
+          <ProjectGrid />
+        </div> -->
     </section>
 </template>
 
@@ -34,8 +36,8 @@ import listDark from '../assets/list-dark.svg'
 import gridLight from '../assets/grid-light.svg'
 import gridDark from '../assets/grid-dark.svg'
 
-// import ProjectList from './ProjectList.vue'
-import ProjectGrid from './ProjectGrid.vue'
+import ProjectList from './ProjectList.vue'
+// import ProjectGrid from './ProjectGrid.vue'
 
 const { isDark } = useTheme()
 </script>
@@ -125,6 +127,12 @@ header {
       transform: translateX(-100%);
     }
   }
+}
+
+// List
+.project-list {
+  display: flex;
+  flex-direction: column;
 }
 
 // Grid
