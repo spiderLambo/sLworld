@@ -5,31 +5,34 @@
             <h6>PLK</h6>
             
             <div class="menu">
-                <input type="checkbox" id="switch" />
-                <label for="switch">
+                <input type="checkbox" :id="uniqueId" v-model="isGrid"/>
+                <label :for="uniqueId">
                     <img :src="isDark ? listDark : listLight"
                     alt="Passer en mode liste">
                     <img :src="isDark ? gridDark : gridLight"
                     alt="Passer en mode liste">
-
                 </label>
             </div>
         </header>
 
-        <div class="project-list">
-          <ProjectList />
-          <ProjectList />
-        </div>
-        <!-- <div class="projects-grid">
-          <ProjectGrid />
-          <ProjectGrid />
-        </div> -->
+          
+        <transition name="fade" mode="out-in">
+          <div v-if="!isGrid" class="project-list" key="list">
+            <ProjectList />
+            <ProjectList />
+          </div>
+          <div v-else class="projects-grid" key="grid">
+            <ProjectGrid />
+            <ProjectGrid />
+          </div>
+        </transition>
     </section>
 </template>
 
 
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useTheme } from '../composables/useTheme'
 import listLight from '../assets/list-light.svg'
 import listDark from '../assets/list-dark.svg'
@@ -37,9 +40,12 @@ import gridLight from '../assets/grid-light.svg'
 import gridDark from '../assets/grid-dark.svg'
 
 import ProjectList from './ProjectList.vue'
-// import ProjectGrid from './ProjectGrid.vue'
+import ProjectGrid from './ProjectGrid.vue'
 
 const { isDark } = useTheme()
+
+const isGrid = ref(false)
+const uniqueId = `switch-${Math.random().toString(36).substr(2, 9)}`
 </script>
 
 
@@ -142,5 +148,13 @@ header {
   grid-template-columns: repeat(4, 1fr);
   gap: 2vw;
   width: 100%;
+}
+
+// Transitions
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>
