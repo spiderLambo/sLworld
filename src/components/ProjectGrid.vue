@@ -1,10 +1,7 @@
 <template>
     <section class="project">
-        <img src="../assets/test/cover.jpeg" alt="Cover de Enna" title="Enna">
-        <div class="info">
-            <h1>Enna</h1>
-            <h3>28 Août, 2020</h3>
-        </div>
+        <img src="../assets/test/cover.jpeg" alt="Cover de Enna" title="Enna
+28 Août, 2020">
         <div class="compteur">
             <button><span>+</span></button>
             <span>2</span>
@@ -17,24 +14,27 @@
 
 <style scoped lang="scss">
 $g: 10;
-$gap: $g * 0.4;
+$gap: $g * 0.1;
 $height: 15vw;
 
 .project {
   border: none;
   border-radius: 0;
-  border-top: 3px solid;
   padding: calc(#{$g}px * 2);
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: #{$gap}vw;
-  width: auto;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 
   > img {
     border-radius: 10px;
     height: calc(#{$height});
     width: calc(#{$height});
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.05);
@@ -43,19 +43,10 @@ $height: 15vw;
 
   }
 
-  .info {
-    h1 {
-        font-size: calc($height / 2.5);
-    }
-    h3 {
-        font-size: calc($height / 9);
-    }
-  }
-
   .compteur {
-    margin-left: auto;
     font-size: calc($height / 3);
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: #{$g}px;
 
