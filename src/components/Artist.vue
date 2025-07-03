@@ -56,10 +56,10 @@ function vwToPx(vw: number) {
   return window.innerWidth * (vw / 100)
 }
 
-const gridCols = computed(() => {
+const gridCols =  computed(() => {
   if (!gridEltHeight.value) return 1
   const eltPx = vwToPx(gridEltHeight.value)
-  return Math.max(1, Math.floor(gridWidthPx.value / eltPx))
+  return Math.max(1, Math.floor(-2 + gridWidthPx.value / eltPx))
 })
 
 function updateGridWidth() {
