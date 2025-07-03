@@ -1,5 +1,5 @@
 <template>
-    <section class="project">
+    <section class="project" :style="{'--height' : props.height + 'vw'}">
         <img src="../assets/test/cover.jpeg" alt="Cover de Enna" title="Enna
 28 Août, 2020">
         <div class="compteur">
@@ -10,7 +10,11 @@
     </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{
+  height: number
+}>()
+</script>
 
 <style scoped lang="scss">
 $g: 10;
@@ -31,8 +35,8 @@ $height: 15vw;
 
   > img {
     border-radius: 10px;
-    height: calc(#{$height});
-    width: calc(#{$height});
+    height: var(--height);
+    width: var(--height);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: pointer;
 
@@ -44,7 +48,7 @@ $height: 15vw;
   }
 
   .compteur {
-    font-size: calc($height / 3);
+    font-size: calc(var(--height) / 3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,13 +58,13 @@ $height: 15vw;
       background: none;
       border-radius: 50%;
       border: .5vw solid;
-      height: calc($height / 4);
-      width: calc($height / 4);
+      height: calc(var(--height) / 4);
+      width: calc(var(--height) / 4);
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: calc($height / 4);
+      font-size: calc(var(--height) / 4);
 
       span {
         display: inline-block;

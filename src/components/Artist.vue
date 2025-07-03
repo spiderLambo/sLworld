@@ -3,6 +3,8 @@
         <header>
             <img src="../assets/test/artist.jpeg" alt="PLK">
             <h6>PLK</h6>
+
+            <input type="range" min="10" v-model="gridHeight" max="20" v-if="isGrid">
             
             <div class="menu">
                 <input type="checkbox" :id="uniqueId" v-model="isGrid"/>
@@ -22,8 +24,8 @@
             <ProjectList />
           </div>
           <div v-else class="projects-grid" key="grid">
-            <ProjectGrid />
-            <ProjectGrid />
+            <ProjectGrid :height="gridHeight" />
+            <ProjectGrid :height="gridHeight"/>
           </div>
         </transition>
     </section>
@@ -45,6 +47,7 @@ import ProjectGrid from './ProjectGrid.vue'
 const { isDark } = useTheme()
 
 const isGrid = ref(false)
+const gridHeight = ref(15)
 const uniqueId = `switch-${Math.random().toString(36).substr(2, 9)}`
 </script>
 
