@@ -34,7 +34,7 @@
 
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch, nextTick, onBeforeUnmount } from 'vue'
+import { ref, computed } from 'vue'
 import { useTheme } from '../composables/useTheme'
 import listLight from '../assets/list-light.svg'
 import listDark from '../assets/list-dark.svg'
@@ -49,40 +49,24 @@ const { isDark } = useTheme()
 const isGrid = ref(false)
 const gridEltHeight = ref(15)
 const uniqueId = `switch-${Math.random().toString(36).substr(2, 9)}`
-const gridWidth = ref<HTMLElement | null>(null)
-const gridWidthPx = ref(0)
 
-function vwToPx(vw: number) {
-  return window.innerWidth * (vw / 100)
-}
-
-const gridCols =  computed(() => {
-  if (!gridEltHeight.value) return 1
-  const eltPx = vwToPx(gridEltHeight.value)
-  return Math.max(1, Math.floor(-2 + gridWidthPx.value / eltPx))
-})
-
-function updateGridWidth() {
-  if (gridWidth.value) {
-    gridWidthPx.value = gridWidth.value.offsetWidth
+let gridCols =  computed(() => {
+  if (gridEltHeight.value <= 10) {
+    return 7
+  } else if (gridEltHeight.value <= 12) {
+    return 6
+  } else if (gridEltHeight.value <= 13) {
+    return 5
+  } else if (gridEltHeight.value <= 16) {
+    return 4
+  } else if (gridEltHeight.value <= 19) {
+    return 3
+  } else {
+    return 2
   }
-}
-
-
-onMounted(() => {
-  updateGridWidth()
-  window.addEventListener('resize', updateGridWidth)
 })
 
 
-watch([isGrid, gridEltHeight], async () => {
-  await nextTick()
-  updateGridWidth()
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateGridWidth)
-})
 </script>
 
 
