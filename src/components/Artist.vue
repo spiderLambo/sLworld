@@ -102,9 +102,16 @@ header {
     font-size: $size;
   }
 
+  input {
+    margin-left: auto;
+  }
+
+  &:not(:has(input[type="range"])) .menu {
+    margin-left: auto;
+  }
+
   .menu {
     position: relative;
-    margin-left: auto;
     display: flex;
     align-items: center;
 
