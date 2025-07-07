@@ -104,6 +104,81 @@ header {
 
   input {
     margin-left: auto;
+    
+    width: 200px;
+    height: 2.2em;
+    background: transparent;
+    accent-color: #007bff; // fallback moderne
+
+    // Track (barre)
+    &::-webkit-slider-runnable-track {
+      height: 8px;
+      background: linear-gradient(90deg, #007bff 0%, #b3d4fc 100%);
+      border-radius: 4px;
+    }
+    &::-moz-range-track {
+      height: 8px;
+      background: linear-gradient(90deg, #007bff 0%, #b3d4fc 100%);
+      border-radius: 4px;
+    }
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      background: #b3d4fc;
+      border-radius: 4px;
+    }
+
+    // Thumb (curseur)
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border: 3px solid #007bff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s, border 0.2s;
+      cursor: pointer;
+      margin-top: -8px; // pour centrer le thumb sur la track
+    }
+    &::-webkit-slider-thumb:hover {
+      background: #007bff;
+      border-color: #0056b3;
+    }
+    &::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border: 3px solid #007bff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s, border 0.2s;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb:hover {
+      background: #007bff;
+      border-color: #0056b3;
+    }
+    &::-ms-thumb {
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border: 3px solid #007bff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s, border 0.2s;
+      cursor: pointer;
+    }
+
+    // Remove outline on focus
+    &:focus {
+      outline: none;
+    }
+
+    // Pour Firefox
+    &::-moz-focus-outer {
+      border: 0;
+    }
   }
 
   &:not(:has(input[type="range"])) .menu {
