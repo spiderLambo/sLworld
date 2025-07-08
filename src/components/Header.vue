@@ -6,8 +6,12 @@
                 <li><img src="../../public/sLmusic-big.svg" alt="🎵 sLmusic"></li>
             </ul>
             <ul>
-                <li>
-                  <h1>Ajouter</h1>
+                <li class="ajouter-menu">
+                    <h1>Ajouter</h1>
+                    <ul class="dropdown">
+                    <li>Artiste</li>
+                    <li>Projet</li>
+                    </ul>
                 </li>
                 <li>
                     <img :src="isDark ? sun : moon"
@@ -58,6 +62,37 @@ nav {
 .pp {
     height: 40px;
     border-radius: 50%;
+}
+
+.ajouter-menu {
+  position: relative;
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+
+    li {
+      padding: 8px 16px;
+      white-space: nowrap;
+      color: #222;
+      cursor: pointer;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+
+  &:hover .dropdown {
+    display: block;
+  }
 }
 
 </style>
