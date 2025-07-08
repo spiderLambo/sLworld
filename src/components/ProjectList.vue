@@ -1,19 +1,35 @@
 <template>
     <section class="project">
-        <img src="../assets/test/cover.jpeg" alt="Cover de Enna" title="Enna">
+        <img :src="props.cover" :alt="'Cover de ' + props.name" :title="props.name">
         <div class="info">
-            <h1>Enna</h1>
-            <h3>28 Août, 2020</h3>
+            <h1>{{ props.name }}</h1>
+            <h3>{{ formatDate(props.date) }}</h3>
         </div>
         <div class="compteur">
             <button><span>+</span></button>
-            <span>2</span>
+            <span>{{ props.listen }}</span>
             <button><span>-</span></button>
         </div>
     </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{
+  name: string,
+  cover: string,
+  date: string,
+  listen: number,
+}>()
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  })
+}
+</script>
 
 <style scoped lang="scss">
 $g: 10;

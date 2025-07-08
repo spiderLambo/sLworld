@@ -1,10 +1,11 @@
 <template>
     <section class="project" :style="{'--height' : props.height + 'vw'}">
-        <img src="../assets/test/cover.jpeg" alt="Cover de Enna" title="Enna
-28 Août, 2020">
+        <img :src="props.cover"
+         :alt="'Cover de ' + props.name"
+         :title="props.name + '\n' + formatDate(props.date)">
         <div class="compteur">
             <button><span>+</span></button>
-            <span>2</span>
+            <span>{{ props.listen }}</span>
             <button><span>-</span></button>
         </div>
     </section>
@@ -12,8 +13,21 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  height: number
+  height: number,
+  name: string,
+  cover: string,
+  date: string,
+  listen: number,
 }>()
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  })
+}
 </script>
 
 <style scoped lang="scss">

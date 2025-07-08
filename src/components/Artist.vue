@@ -1,8 +1,8 @@
 <template>
     <section>
         <header>
-            <img src="../assets/test/artist.jpeg" alt="PLK">
-            <h6>PLK</h6>
+            <img :src="props.profile" :alt="props.name">
+            <h6>{{ props.name }}</h6>
 
             <input type="range" min="10" v-model="gridEltHeight" max="20" v-if="isGrid">
             
@@ -20,12 +20,23 @@
           
         <transition name="fade" mode="out-in">
           <div v-if="!isGrid" class="project-list" key="list">
-            <ProjectList />
-            <ProjectList />
+            <ProjectList 
+            v-for="project in props.projects"
+            :name="project.name"
+            :cover="project.cover"
+            :date="project.date"
+            :listen="project.listen"
+            />
           </div>
           <div v-else class="projects-grid" ref="gridWidth" :style="{ '--grid-cols': gridCols }" key="grid">
-            <ProjectGrid :height="gridEltHeight" />
-            <ProjectGrid :height="gridEltHeight"/>
+            <ProjectGrid 
+            :height="gridEltHeight"
+            v-for="project in props.projects"
+            :name="project.name"
+            :cover="project.cover"
+            :date="project.date"
+            :listen="project.listen"
+            />
           </div>
         </transition>
     </section>
@@ -66,7 +77,11 @@ let gridCols =  computed(() => {
   }
 })
 
-
+const props = defineProps<{
+  name: string,
+  profile: string,
+  projects: {name: string, cover: string, date: string, listen: number}[]
+}>()
 </script>
 
 
@@ -95,6 +110,7 @@ header {
 
   > img {
     height: $size;
+    width: $size;
     border-radius: 50%;
   }
 
