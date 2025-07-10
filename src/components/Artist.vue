@@ -25,7 +25,7 @@
             :name="project.name"
             :cover="project.cover"
             :date="project.date"
-            :listen="project.listen"
+            :listens="project.listens"
             />
           </div>
           <div v-else class="projects-grid" ref="gridWidth" :style="{ '--grid-cols': gridCols }" key="grid">
@@ -35,7 +35,7 @@
             :name="project.name"
             :cover="project.cover"
             :date="project.date"
-            :listen="project.listen"
+            :listens="project.listens"
             />
           </div>
         </transition>
@@ -80,7 +80,7 @@ let gridCols =  computed(() => {
 const props = defineProps<{
   name: string,
   profile: string,
-  projects: {name: string, cover: string, date: string, listen: number}[]
+  projects: {name: string, cover: string, date: string, listens: number}[]
 }>()
 </script>
 
@@ -106,7 +106,10 @@ header {
   gap: 1vw;
   height: auto;
   width: 100%;
-
+  
+  * {
+    background-color: transparent;
+  }
 
   > img {
     height: $size;

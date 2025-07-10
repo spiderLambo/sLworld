@@ -6,9 +6,9 @@
             <h3>{{ formatDate(props.date) }}</h3>
         </div>
         <div class="compteur">
-            <button><span>+</span></button>
-            <span>{{ props.listen }}</span>
             <button><span>-</span></button>
+            <span>{{ props.listens }}</span>
+            <button><span>+</span></button>
         </div>
     </section>
 </template>
@@ -18,7 +18,7 @@ const props = defineProps<{
   name: string,
   cover: string,
   date: string,
-  listen: number,
+  listens: number,
 }>()
 
 function formatDate(dateStr: string) {

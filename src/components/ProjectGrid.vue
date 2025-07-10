@@ -4,9 +4,9 @@
          :alt="'Cover de ' + props.name"
          :title="props.name + '\n' + formatDate(props.date)">
         <div class="compteur">
-            <button><span>+</span></button>
-            <span>{{ props.listen }}</span>
             <button><span>-</span></button>
+            <span>{{ props.listens }}</span>
+            <button><span>+</span></button>
         </div>
     </section>
 </template>
@@ -17,7 +17,7 @@ const props = defineProps<{
   name: string,
   cover: string,
   date: string,
-  listen: number,
+  listens: number,
 }>()
 
 function formatDate(dateStr: string) {
@@ -28,6 +28,10 @@ function formatDate(dateStr: string) {
     year: 'numeric'
   })
 }
+
+
+
+
 </script>
 
 <style scoped lang="scss">
@@ -67,9 +71,13 @@ $height: 15vw;
     justify-content: center;
     align-items: center;
     gap: #{$g}px;
+    background: none;
+
+    * {
+      background: none;
+    }
 
     > button {
-      background: none;
       border-radius: 50%;
       border: .5vw solid;
       height: calc(var(--height) / 4);
