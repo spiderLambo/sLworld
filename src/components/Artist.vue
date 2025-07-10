@@ -86,6 +86,8 @@ const props = defineProps<{
 
 
 <style scoped lang="scss">
+@import '../style';
+
 $size: 25px;
 $diference: 5px;
 
@@ -127,22 +129,21 @@ header {
     width: 200px;
     height: 2.2em;
     background: transparent;
-    accent-color: #007bff; // fallback moderne
+    // accent-color: #007bff; // fallback moderne
 
     // Track (barre)
     &::-webkit-slider-runnable-track {
       height: 8px;
-      background: linear-gradient(90deg, #007bff 0%, #b3d4fc 100%);
+      background: $dRangeBG;
       border-radius: 4px;
     }
     &::-moz-range-track {
       height: 8px;
-      background: linear-gradient(90deg, #007bff 0%, #b3d4fc 100%);
+      background: $dRangeBG;
       border-radius: 4px;
     }
     &::-ms-fill-lower,
     &::-ms-fill-upper {
-      background: #b3d4fc;
       border-radius: 4px;
     }
 
@@ -152,37 +153,25 @@ header {
       appearance: none;
       width: 24px;
       height: 24px;
-      background: #fff;
-      border: 3px solid #007bff;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: background 0.2s, border 0.2s;
       cursor: pointer;
       margin-top: -8px; // pour centrer le thumb sur la track
     }
-    &::-webkit-slider-thumb:hover {
-      background: #007bff;
-      border-color: #0056b3;
-    }
     &::-moz-range-thumb {
       width: 24px;
       height: 24px;
-      background: #fff;
-      border: 3px solid #007bff;
+      // background: #fff;
+      // border: 3px solid #007bff;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: background 0.2s, border 0.2s;
       cursor: pointer;
     }
-    &::-moz-range-thumb:hover {
-      background: #007bff;
-      border-color: #0056b3;
-    }
     &::-ms-thumb {
       width: 24px;
       height: 24px;
-      background: #fff;
-      border: 3px solid #007bff;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: background 0.2s, border 0.2s;
@@ -208,24 +197,24 @@ header {
     position: relative;
     display: flex;
     align-items: center;
-
+    
     input[type="checkbox"] {
       height: 0;
       width: 0;
       visibility: hidden;
     }
-
+    
     label {
+      background-color: $dSelectionBg;
+      border-radius: 5px;
       display: flex;
       align-items: center;
       gap: $diference;
       padding: calc($diference / 2);
       position: relative;
-      border: 1px solid;
-      border-radius: 5px;
       cursor: pointer;
       overflow: hidden;
-
+      
       &::after {
         content: '';
         position: absolute;
@@ -233,8 +222,9 @@ header {
         left: 0;
         width: 50%;
         height: 100%;
-        background: blue;
+        background: $dSelectedElementBg;
         transition: .1s;
+        border-radius: 5px;
         z-index: 0;
       }
 

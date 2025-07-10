@@ -15,3 +15,5 @@
     - #1ed760 (Séléctionné (titre))
     - #000000 (Fond des fond)
     - #121212 (Fond)
+    - #eeeeee (Textes)
+    - #828282 (Sous Textes / numeros)

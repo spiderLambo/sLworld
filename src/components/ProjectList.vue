@@ -32,6 +32,8 @@ function formatDate(dateStr: string) {
 </script>
 
 <style scoped lang="scss">
+@import '../style';
+
 $g: 10;
 $gap: $g * 0.4;
 $height: 15vw;
@@ -65,6 +67,7 @@ $height: 15vw;
     }
     h3 {
         font-size: calc($height / 9);
+        color: $dSubText;
     }
   }
 
