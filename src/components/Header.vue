@@ -6,7 +6,7 @@
                     <img src="../assets/test/pp.webp" alt="Nom d'utilisateur" class="pp">
                     <ul class="dropdown">
                         <li>Paramètres</li>
-                        <li>Se déconnecter</li>
+                        <li class="end">Se déconnecter</li>
                     </ul>
                 </li>
                 <li><img src="../../public/sLmusic-big.svg" alt="🎵 sLmusic"></li>
@@ -82,15 +82,24 @@ nav {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   z-index: 10;
+  overflow: hidden;
+  
+  .end,
+  .end:hover {
+    color:rgb(255, 46, 46);
+  }
 
   li {
     padding: 8px 16px;
     white-space: nowrap;
-    color: #222;
+    color: #f0f0f0;
     cursor: pointer;
 
+
     &:hover {
+      color: #222;
       background: #f0f0f0;
+      text-decoration: underline;
     }
   }
 }
