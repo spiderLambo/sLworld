@@ -129,7 +129,6 @@ header {
     width: 200px;
     height: 2.2em;
     background: transparent;
-    // accent-color: #007bff; // fallback moderne
 
     // Track (barre)
     &::-webkit-slider-runnable-track {
@@ -157,13 +156,11 @@ header {
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: background 0.2s, border 0.2s;
       cursor: pointer;
-      margin-top: -8px; // pour centrer le thumb sur la track
+      margin-top: -8px;
     }
     &::-moz-range-thumb {
       width: 24px;
       height: 24px;
-      // background: #fff;
-      // border: 3px solid #007bff;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: background 0.2s, border 0.2s;

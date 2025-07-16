@@ -70,13 +70,12 @@ nav {
   border-radius: 50%;
 }
 
-// Style commun pour tous les dropdowns
 .dropdown {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 4px;
   min-width: 120px;
   background: #fff;
@@ -92,13 +91,13 @@ nav {
   li {
     padding: 8px 16px;
     white-space: nowrap;
-    color: #f0f0f0;
+    color: #0f0f0f;
     cursor: pointer;
 
 
     &:hover {
-      color: #222;
-      background: #f0f0f0;
+      color: #ddd;
+      background: #0f0f0f;
       text-decoration: underline;
     }
   }

@@ -2,17 +2,17 @@
 
 
 // Dark mode colors
-$dBg: #121212; // Background color
-$dBorder: #3c3c3c; // Border color
-$dText: #eeeeee; // Text color
-$dSubText: #828282; // Subtext color
+$lBg: #ededed; // Background color
+$lBorder: #c3c3c3; // Border color
+$lText: #111111; // Text color
+$lSubText: #7d7d7d; // Subtext color
 
-$dSelectedElement: #ffffff; // Selected element color
-$dSelectedElementBg: #363636; // Selected element background color
-$dSelectionBg: #1f1f1f; // Selection background color
-$dUnselectedElement: #b3b3b3; // Unselected element color
+$lSelectedElement: #000; // Selected element color
+$lSelectedElementBg: #c9c9c9; // Selected element background color
+$lSelectionBg: #e0e0e0; // Selection background color
+$lUnselectedElement: #4c4c4c; // Unselected element color
 
-$dRangeBG: #1ed760; // Range color
+$lRangeBG: #1ed760; // Range color
 
 
 * {
@@ -33,10 +33,10 @@ $dRangeBG: #1ed760; // Range color
 // }
 
 body.dark {
-    background-color: $dBg;
+    background-color: $lBg;
 }
 .dark * {
-    color: $dText;
-    background-color: $dBg;
-    border-color: $dBorder;
+    color: $lText;
+    background-color: $lBg;
+    border-color: $lBorder;
 }
