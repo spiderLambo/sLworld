@@ -4,7 +4,7 @@
             <ul>
                 <li class="pp-menu">
                     <img src="../assets/test/pp.webp" alt="Nom d'utilisateur" class="pp">
-                    <ul class="dropdown">
+                    <ul :class="['dropdown', isDark ? 'dark' : 'light']">
                         <li>Paramètres</li>
                         <li class="end">Se déconnecter</li>
                     </ul>
@@ -14,9 +14,9 @@
             <ul>
                 <li class="ajouter-menu">
                     <h1>Ajouter</h1>
-                    <ul class="dropdown">
-                    <li>Artiste</li>
-                    <li>Projet</li>
+                    <ul :class="['dropdown', isDark ? 'dark' : 'light']">
+                      <li>Artiste</li>
+                      <li>Projet</li>
                     </ul>
                 </li>
                 <li>
@@ -70,6 +70,31 @@ nav {
   border-radius: 50%;
 }
 
+.dropdown.light {
+  li:hover {
+    color: #ddd;
+    background: #0f0f0f;
+  }
+
+  .end,
+  .end:hover {
+    color: rgb(255, 46, 46);
+  }
+}
+
+.dropdown.dark {
+  li:hover {
+    color: #222;
+    background: #f0f0f0;
+  }
+
+  .end,
+  .end:hover {
+    color: rgb(255, 46, 46);
+  }
+}
+
+
 .dropdown {
   display: none;
   position: absolute;
@@ -78,26 +103,20 @@ nav {
   border: 1px solid #333;
   border-radius: 4px;
   min-width: 120px;
-  background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   z-index: 10;
   overflow: hidden;
   
-  .end,
-  .end:hover {
-    color:rgb(255, 46, 46);
-  }
+
+
 
   li {
     padding: 8px 16px;
     white-space: nowrap;
-    color: #0f0f0f;
     cursor: pointer;
 
 
     &:hover {
-      color: #ddd;
-      background: #0f0f0f;
       text-decoration: underline;
     }
   }

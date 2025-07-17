@@ -8,7 +8,7 @@
             
             <div class="menu">
                 <input type="checkbox" :id="uniqueId" v-model="isGrid"/>
-                <label :for="uniqueId">
+                <label :for="uniqueId" :class="{ dark: isDark, light: !isDark }">
                     <img :src="isDark ? listDark : listLight"
                     alt="Passer en mode liste">
                     <img :src="isDark ? gridDark : gridLight"
@@ -133,12 +133,12 @@ header {
     // Track (barre)
     &::-webkit-slider-runnable-track {
       height: 8px;
-      background: $lRangeBG;
+      background: $RangeBG;
       border-radius: 4px;
     }
     &::-moz-range-track {
       height: 8px;
-      background: $lRangeBG;
+      background: $RangeBG;
       border-radius: 4px;
     }
     &::-ms-fill-lower,
@@ -200,9 +200,23 @@ header {
       width: 0;
       visibility: hidden;
     }
+
+    label.dark {
+      background-color: $dSelectionBg;
+
+      &::after {
+        background: $dSelectedElementBg;
+      }
+    }
+    label.light {
+      background-color: $lSelectionBg;
+
+      &::after {
+        background: $lSelectedElementBg;
+      }
+    }
     
     label {
-      background-color: $lSelectionBg;
       border-radius: 5px;
       display: flex;
       align-items: center;
