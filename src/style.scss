@@ -32,10 +32,10 @@ $lRangeBG: #1ed760; // Range color
 //     border-color: $black;
 // }
 
-body.dark {
+body.light {
     background-color: $lBg;
 }
-.dark * {
+.light * {
     color: $lText;
     background-color: $lBg;
     border-color: $lBorder;

@@ -67,7 +67,7 @@ $height: 15vw;
     }
     h3 {
         font-size: calc($height / 9);
-        color: $dSubText;
+        color: $lSubText;
     }
   }
 

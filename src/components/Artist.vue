@@ -133,12 +133,12 @@ header {
     // Track (barre)
     &::-webkit-slider-runnable-track {
       height: 8px;
-      background: $dRangeBG;
+      background: $lRangeBG;
       border-radius: 4px;
     }
     &::-moz-range-track {
       height: 8px;
-      background: $dRangeBG;
+      background: $lRangeBG;
       border-radius: 4px;
     }
     &::-ms-fill-lower,
@@ -202,7 +202,7 @@ header {
     }
     
     label {
-      background-color: $dSelectionBg;
+      background-color: $lSelectionBg;
       border-radius: 5px;
       display: flex;
       align-items: center;
@@ -219,7 +219,7 @@ header {
         left: 0;
         width: 50%;
         height: 100%;
-        background: $dSelectedElementBg;
+        background: $lSelectedElementBg;
         transition: .1s;
         border-radius: 5px;
         z-index: 0;
