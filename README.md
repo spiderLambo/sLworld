@@ -19,9 +19,6 @@ Une application frontend construite avec **Vue.js 3** et **Vite**, affichant dyn
 4. **Ouvrir dans le navigateur**
     ```bash
     http://localhost:5173
-## 💡 À venir
-* Frontend entier
-* 🔌 Connexion à un backend
 
 
 Made with ❤️ by Spider Lambo
