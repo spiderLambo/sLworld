@@ -3,6 +3,7 @@ try:
 except ImportError:
     from public.hash import hash
 from flask import Flask
+import databases.controler.user
 
 
 app = Flask(__name__)

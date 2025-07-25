@@ -51,9 +51,30 @@ python3 app.py
 
 ---
 
+## Créer des bases de donées
+
+```bash
+mkdir databases
+cd databases
+touch User.db
+```
+
+Puis renter ce SQL dans `User.db`
+```SQL
+CREATE TABLE "Users" (
+	"Id"	INTEGER,
+	"Username"	TEXT,
+	"Passworld"	TEXT,
+	"Email"     TEXT,
+	PRIMARY KEY("Id")
+);
+```
+
+---
+
 ## 🧾 À ne pas oublier
 
-Ajoutez ce dossier à votre .gitignore
+Ajoutez env .gitignore
 
 ---
 
