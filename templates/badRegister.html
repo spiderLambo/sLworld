@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erreur de formulaire</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fef2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .error-container {
+      background-color: white;
+      border: 1px solid #fecaca;
+      border-left: 6px solid #dc2626;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #dc2626;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      color: #b91c1c;
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <h2>Erreurs dans le formulaire :</h2>
+    <ul>
+      <li>Le nom d'utilisateur doit contenir entre 3 et 30 caractères.</li>
+      <li>Le mot de passe et sa confirmation doivent être identiques.</li>
+      <li>Une adresse e-mail valide est requise.</li>
+      <li>Tous les champs sont obligatoires.</li>
+    </ul>
+    <a href="/register">⟵ Revenir au formulaire d'inscription</a>
+  </div>
+</body>
+</html>

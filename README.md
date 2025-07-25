@@ -64,6 +64,7 @@ Puis renter ce SQL dans `User.db`
 CREATE TABLE "Users" (
 	"Id"	INTEGER,
 	"Username"	TEXT,
+	"Name"      TEXT,
 	"Passworld"	TEXT,
 	"Email"     TEXT,
 	PRIMARY KEY("Id")
