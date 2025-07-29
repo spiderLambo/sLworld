@@ -54,9 +54,9 @@ python3 app.py
 ## Créer des bases de donées
 
 ```bash
-mkdir databases
 cd databases
 touch User.db
+touch Cookies.db
 ```
 
 Puis renter ce SQL dans `User.db`
@@ -67,6 +67,17 @@ CREATE TABLE "Users" (
 	"Name"      TEXT,
 	"Passworld"	TEXT,
 	"Email"     TEXT,
+	PRIMARY KEY("Id")
+);
+```
+Puis renter ce SQL dans `Cookies.db`
+```SQL
+CREATE TABLE "Cookies" (
+	"Id"	INTEGER,
+	"UserId"	INTEGER,
+	"Cookie"	TEXT,
+	"Date_creation"	INTEGER,
+	"Date_end"	INTEGER,
 	PRIMARY KEY("Id")
 );
 ```
